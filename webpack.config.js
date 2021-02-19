@@ -4,15 +4,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const DotEnv = require('dotenv-webpack')
 
 module.exports = env => {
-  const publicPath = env.NODE_ENV === 'local' ? {
-    publicPath: '/'
-  } : {}
+
   return {
     entry: './src/index.js',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),
-      ...publicPath
+      publicPath: '/'
     },
     module: {
       rules: [
